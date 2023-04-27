@@ -1,0 +1,836 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Toronto Star</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- <script src="hammer.min.js"></script> -->
+
+    <style>
+
+        @font-face {
+          font-family: TorstarDeckCondensed;
+          src: url(https://misc.thestar.com/fonts/TorstarDeckCondensed-Semibold.otf);
+        }
+
+        body {
+            margin: 0;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            background-color: #f8f8f8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .clearfix:after {
+            visibility: hidden;
+            display: block;
+            font-size: 0;
+            content: " ";
+            clear: both;
+            height: 0;
+            }
+            
+        .clearfix {
+            display: block;
+            }
+
+        .graphic-wrapper {
+              margin: 0 auto;
+              max-width: 1032px; }
+
+        .graphic-top {
+          padding: 8px 0 16px;
+          max-width: 600px;
+          margin: 0 auto }
+          @media (min-width: 526px) {
+            .graphic-top {
+              padding: 12px 0 24px; } }
+          @media (min-width: 592px) {
+            .graphic-top {
+              padding: 16px 0 32px; } }
+
+        h2.graphic-top__graphic-hed {
+          margin: 0;
+          font-size: 26px;
+          line-height: 1.2em;
+          padding-bottom: 4px;
+          font-family: "TorstarDeckCondensed", Georgia, "Times New Roman", Times, serif;
+          color: #000;
+          text-rendering: optimizeLegibility;
+          font-weight: normal;
+          font-style: normal;
+          -moz-osx-font-smoothing: grayscale;
+        }
+          @media (min-width: 526px) {
+            h2.graphic-top__graphic-hed {
+              font-size: 28px; } }
+          @media (min-width: 592px) {
+            h2.graphic-top__graphic-hed {
+              font-size: 30px; } }
+
+        h3.graphic-top__graphic-dek {
+          font-size: 14px;
+          line-height: 1.35em;
+          font-weight: 400;
+          margin: 0;
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+          color: #444; }
+          @media (min-width: 526px) {
+            h3.graphic-top__graphic-dek {
+              font-size: 15px; } }
+          @media (min-width: 592px) {
+            h3.graphic-top__graphic-dek {
+              font-size: 16px; } }
+
+        .graphic-bottom {
+          margin: 16px 0 0;
+          padding: 4px 0 24px;
+          border-top: 1px solid #b0b0b0;
+          max-width: 600px }
+          .graphic-bottom:after {
+            visibility: hidden;
+            display: block;
+            font-size: 0;
+            content: " ";
+            clear: both;
+            height: 0; }
+          @media (min-width: 526px) {
+            .graphic-bottom {
+              margin: 24px 0 0;
+              padding-top: 6px; } }
+          @media (min-width: 592px) {
+            .graphic-bottom {
+              padding-top: 8px;
+              margin: 32px auto 0 } }
+
+        p.graphic-bottom__graphic-source {
+          margin: 0;
+          padding-bottom: 4px;
+          font-size: 11px;
+          line-height: 1.35em;
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+          color: #707070;
+          text-rendering: optimizeLegibility;
+          text-transform: uppercase; }
+          @media (min-width: 526px) {
+            p.graphic-bottom__graphic-source {
+              max-width: 65%;
+              vertical-align: top;
+              float: left;
+              font-size: 12px; } }
+        p.graphic-bottom__graphic-byline {
+          margin: 0;
+          padding-bottom: 4px;
+          font-size: 11px;
+          line-height: 1.35em;
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+          color: #707070;
+          text-transform: uppercase;
+          text-rendering: optimizeLegibility; }
+          @media (min-width: 526px) {
+            p.graphic-bottom__graphic-byline {
+              text-align: right;
+              max-width: 30%;
+              vertical-align: top;
+              float: right;
+              font-size: 12px; } }
+        p.graphic-bottom__notetext {
+          margin: 0;
+          text-align: left;
+          font-size: 14px;
+          line-height: 1.35em;
+          padding-bottom: 8px;
+          color: #444;
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+          webkit-font-smoothing: subpixel-antialiased;
+          -moz-osx-font-smoothing: auto;
+          text-rendering: optimizeLegibility; }
+          @media (min-width: 526px) {
+            p.graphic-bottom__notetext {
+              font-size: 15px; } }
+          @media (min-width: 592px) {
+            p.graphic-bottom__notetext {
+              font-size: 16px; } }
+
+         p.instructions {
+              font-size: 12px;
+              line-height: 1.3em;
+              font-weight: 400;
+              margin: 0;
+              font-family: 'Inter',"Merriweather Sans", Helvetica, Arial, sans-serif;
+              color: #707070;
+               font-style: italic;
+            }
+              @media (min-width: 526px) {
+                p.instructions {
+                  font-size: 13px; } }
+              @media (min-width: 592px) {
+                p.instructions {
+                  font-size: 14px;
+                  } }
+
+              #pointers {
+              display: inline-block;
+              height: 20px;
+              margin-bottom: -1px;
+            }
+
+
+        .content-container {
+            /*height: 600px;*/ /* master height here */
+            position: relative;
+        }
+
+
+        /* NAV ARROWS */
+
+        .navarrow-container {
+            position: absolute;
+            z-index: 100;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+        }
+
+        .navarrow {
+            pointer-events: auto;
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            background: none;
+            border:  none;
+            padding: 0;
+        }
+
+        .navarrow:focus {
+            outline:1;
+        }
+
+        #navarrowprevious {
+        	width: 30%;
+        }
+
+        #navarrownext {
+            justify-content: flex-end;
+            width: 50%;
+        }
+
+        .navarrowsvg {
+            stroke-width: 8px;
+            stroke: #222;
+            fill: none;
+            width: 24px;
+            padding: 0;
+            stroke-opacity: 0.6;
+            transition: 0.2s;
+            padding: 0 4px;
+        }
+
+        .navarrow:hover .navarrowsvg {
+            stroke-opacity: 0.8;
+        }
+
+        .disabledbutton {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .clicked .navarrowsvg {
+            stroke-width: 11px;
+        }
+
+
+        @media (min-width: 592px) {
+
+            #navarrowprevious, #navarrownext  {
+                width: 200px;
+            }
+
+            .navarrowsvg {
+                stroke-width: 8px;
+                width: 28px;
+            }
+
+            .clicked .navarrowsvg {
+                stroke-width: 11px;
+            }
+        }
+
+        /* PROGRESS BAR */
+
+        .progressbar {
+            display: flex;
+            justify-content: center;
+            margin: 0 8px 12px;
+            max-width:  608px;
+        }
+
+        .progressmarker {
+            width: 100%;
+            height: 3px;
+            background-color: #000;
+            opacity: 0.2;
+            margin: 0 2px;
+            transition: opacity 0.1s;
+            
+        }
+
+        .activeprogressmarker {
+            opacity: 0.6;
+        }
+
+        @media (min-width: 592px) {
+            .progressbar {
+                 margin: 0 auto 24px;
+            }
+            .progressmarker {
+                margin: 0 4px;
+                height: 4px;
+            }
+        }
+
+      
+
+        /* SLIDE CONTAINER*/
+
+        .slide-container {
+            width: 100%;
+            z-index: 99;
+            position: relative;
+         }
+
+        .slide {
+            width: 100%;
+            opacity: 0;
+            pointer-events: none;
+            display: flex;
+            flex-wrap: wrap;
+            position: absolute;
+            top: 0;
+            left: 0;
+         }
+
+        .activeslide {
+            opacity: 1;
+            pointer-events: auto;
+            position: static;
+         }
+
+       
+
+         .slideimage {
+            width: 100%;
+         }
+
+         .slideimage  img {
+            display: block;
+            width: 100%;
+          }
+
+         .slidecaption {
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.3s;
+            transition-delay: 0.3s;
+            padding: 16px 0 0;
+         }
+
+         .activeslide .slidecaption {
+            opacity: 1;
+         }
+
+         .disruptContainer {
+            /* display: inline; */
+            margin-bottom: 8px;
+            text-transform: uppercase;
+         }
+
+         .disruptContainer img {
+            max-height: 20px;
+         }
+
+         .slidecaption p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.4em;
+            color: #444;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+            padding-bottom: 8px;
+         }
+
+         .slidecaption p:last-of-type {
+            padding-bottom: 0;
+         }
+
+         .slidecaption .slideHed {
+            font-size: 1.2em;
+            font-weight: 600;
+         }
+
+
+         .slidecaption-bottom, .slidecaption-bottomleft, .slidecaption-bottomright  {
+            bottom: 8px;
+            margin: 0 8px;
+         }
+
+         .slidecaption-top, .slidecaption-topleft, .slidecaption-topright {
+            top: 8px;
+            margin: 0 8px;
+         }
+
+
+
+         @media (min-width: 592px) {
+
+             .slideimage {
+                width: 50%;
+             }
+
+             .slideimage  img {
+                display: block;
+                width: 100%;
+              }
+
+             .slidecaption {
+                width: 50%;
+                padding: 0 32px;
+             }
+
+            .slidecaption p {
+                font-size: 14px;
+                padding-bottom: 12px;
+            }
+
+            .slidecaption-bottom {
+                bottom: 16px;
+                margin: 0;
+                left: 0;
+                right: 0;
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 400px;
+            }
+
+            .slidecaption-bottomleft {
+                left: 16px;
+                bottom: 16px;
+                max-width: 400px;
+                margin: 0;
+             }
+
+            .slidecaption-bottomright {
+                right: 16px;
+                bottom: 16px;
+                max-width: 400px;
+                margin: 0;
+             }
+
+            .slidecaption-top {
+                top: 16px;
+                margin: 0;
+                left: 0;
+                right: 0;
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 400px;
+            }
+
+            .slidecaption-topleft {
+                left: 16px;
+                top: 16px;
+                max-width: 400px;
+                margin: 0;
+             }
+
+            .slidecaption-topright {
+                top: 16px;
+                right: 16px;
+                max-width: 400px;
+                margin: 0;
+                
+             }
+        }
+
+        @media (min-width: 800px) {
+
+             .slidecaption p {
+                font-size: 16px;
+                padding-bottom: 16px;
+            }
+
+             #navarrowprevious, #navarrownext  {
+                width: 300px;
+            }
+
+        }
+
+
+    </style>
+    
+</head>
+<body>
+<div class="graphic-wrapper stepper-graphic">
+    <div class="graphic-top">
+        <h2 class="graphic-top__graphic-hed">Hed</h2>
+        <h3 class="graphic-top__graphic-dek">Dek</h3>
+        <p class="instructions"><img id="pointers" src="https://misc.thestar.com/interactivegraphic/libraries/interactive-graphic-cta/SVG/Hover.svg"> on the arrows to move through the graphic.</p>
+    </div>
+
+ 
+    <div class="progressbar">
+        <div class="progressmarker activeprogressmarker"></div>
+        <div class="progressmarker"></div>
+        <div class="progressmarker"></div>
+        <div class="progressmarker"></div>
+        <div class="progressmarker"></div>
+        <div class="progressmarker"></div>
+        <div class="progressmarker"></div>
+    </div>
+
+
+
+    <div class="content-container">
+        <div class="navarrow-container">
+           
+             <button class="navarrow disabledbutton" disabled="" id="navarrowprevious">
+                    <svg class="navarrowsvg" version="1.1" x="0px" y="0px"
+                         viewBox="0 0 50 100" style="enable-background:new 0 0 50 100;" xml:space="preserve">
+                    <polyline points="45,5 5,50 45,95 "/>
+                    </svg>
+            </button>
+            <button class="navarrow" id="navarrownext">
+                    <svg class="navarrowsvg" version="1.1" x="0px" y="0px"
+                         viewBox="0 0 50 100" style="enable-background:new 0 0 50 100;" xml:space="preserve">
+                    <polyline points="5,95 45,50 5,5 "/>
+                    </svg>
+            </button>
+        </div>
+   
+        <div class="slide-container clearfix">
+            <div class="slide activeslide" id="slide1">
+                <div class="slideimage">
+                    <img src="./img/done/bloor-yonge.png">
+                </div>
+                <div class="slidecaption">
+                    <p class="slideHed">Bloor-Yonge Station</p>
+                    <div class="disruptContainer">
+                        <p>How annoying: 
+                            <span><img src="./img/pylon_pylon.svg" alt=""></span>
+                            <span><img src="./img/pylon_pylon.svg" alt=""></span>
+                            <span><img src="./img/pylon_pylon.svg" alt=""></span>
+                            <span><img src="./img/pylon_pylon.svg" alt=""></span>
+                        </p>
+                    </div>
+                    <p>Bloor-Yonge Station and nearby buildings will be undergoing construction to improve capacity with a new exit to Bloor Street, a new second platform for eastbound travellers on Line 2,  at the busy TTC station, which may cause headaches for commuters. </p>
+                    <p>Advanced construction started this April, including the removal (demolition?) of buildings at 81 Bloor Street East and 40/42 Hayden Street to make a new and accessible subway entrance. </p>
+                    <p>The former carwash at 830 Church Street next to Toronto Reference Library will also be removed to “build a future fan building to enhance air circulation at the station.”</p>
+                    <p>Advanced utility relocation work on Bloor Street East will start in late Q2 of 2023, with major construction set to begin in 2024.</p>
+                    <p class="moreInfoLink">Read More <a href="https://www.ttc.ca/about-the-ttc/projects-and-plans/Major-Projects/Bloor-Yonge-Station-Capacity-Improvements" target="_blank">here</a></p>
+                </div>
+            </div>
+            <div class="slide" id="slide2">
+                <div class="slideimage">
+                    <img src="./img/done/lakeshore-east.png">
+                </div>
+                <div class="slidecaption">
+                    <p class="slideHed">Lakeshore East</p>
+                    <div class="disruptContainer">
+                        <p>How annoying: 
+                            <span><img src="./img/pylon_pylon.svg" alt=""></span>
+                            <span><img src="./img/pylon_pylon.svg" alt=""></span>
+                            <span><img src="./img/pylon_pylon.svg" alt=""></span>
+                            <span><img src="./img/pylon_pylon.svg" alt=""></span>
+                        </p>
+                    </div>
+                    <p>Gasmains are being replaced by Enbridge along Lakeshore Blvd West starting at Fort York Blvd to Cherry Street. The work is expected to be complete in 2023 and 2024. Surrounding streets like Parliament Street (from Mill St. to Lakeshore Blvd E), Richardson St. (from Lakeshore Blvd E to Queens Quay E -  until 2024) will also be under construction.</p>
+                    <p>Lakeshore Blvd West from Dan Leckie Way to Rees Street is also under construction by Enbridge.</p>
+                    <p>Lakeshore Blvd West from Rees Street to Spadina Ave will see the eastbound north curb lane occupied until August 2023 for Enwave's Deep Lake Cooling Expansion Project. (major)</p>
+                </div>
+            </div>
+            <div class="slide" id="slide3">
+                <div class="slideimage">
+                    <img src="./img/done/lakeshore-west.png">
+                </div>
+                <div class="slidecaption">
+                    <p class="slideHed">Lakeshore West</p>
+                    <div class="disruptContainer">
+                        <p>How annoying: 
+                            <span><img src="./img/pylon_pylon.svg" alt=""></span>
+                            <span><img src="./img/pylon_pylon.svg" alt=""></span>
+                            <span><img src="./img/pylon_pylon.svg" alt=""></span>
+                            <span><img src="./img/pylon_pylon.svg" alt=""></span>
+                        </p>
+                    </div>
+                    <p>Waterfront Toronto will be constructing new infrastructure or making changes to existing  infrastructure from Jarvis Street to Richardson Street until 2023. They'll also be enhancing infrastructure between Sherbourne Street and Bonnycastle Street.</p>
+                    <p>Two westbound lanes will be closed from Cherry St. to Carlaw Ave. until April 10, 2024 for the reconstruction of the Don River Bridge.</p>
+                </div>
+            </div>
+            <div class="slide" id="slide4">
+                <div class="slideimage">
+                    <img src="./img/done/gardiner.png">
+                </div>
+                <div class="slidecaption">
+                    <p class="slideHed">Gardiner</p>
+                    <div class="disruptContainer">
+                        <p>How annoying: 
+                            <span><img src="./img/pylon_pylon.svg" alt=""></span>
+                            <span><img src="./img/pylon_pylon.svg" alt=""></span>
+                            <span><img src="./img/pylon_pylon.svg" alt=""></span>
+                            <span><img src="./img/pylon_pylon.svg" alt=""></span>
+                        </p>
+                    </div>
+                    <p>Lakeshore Blvd E from the Bay St. north Gardiner Expressway ramp to Yonge street currently has two westbound and one eastbound lane closed for gasmain installation. The closure is expected to last until May 6, 2023. (major)</p>
+                </div>
+            </div>
+            <div class="slide" id="slide5">
+                <div class="slideimage">
+                    <img src="./img/done/gardiner.png">
+                </div>
+                <div class="slidecaption">
+                    <p class="slideHed">Front</p>
+                    <div class="disruptContainer">
+                        <p>How annoying: 
+                            <span><img src="./img/pylon_pylon.svg" alt=""></span>
+                            <span><img src="./img/pylon_pylon.svg" alt=""></span>
+                            <span><img src="./img/pylon_pylon.svg" alt=""></span>
+                            <span><img src="./img/pylon_pylon.svg" alt=""></span>
+                        </p>
+                    </div>
+                    <p>Lakeshore Blvd E from the Bay St. north Gardiner Expressway ramp to Yonge street currently has two westbound and one eastbound lane closed for gasmain installation. The closure is expected to last until May 6, 2023. (major)</p>
+                </div>
+            </div>
+            <div class="slide" id="slide6">
+                <div class="slideimage">
+                    <img src="./img/done/gardiner.png">
+                </div>
+                <div class="slidecaption">
+                    <p class="slideHed">Wellington</p>
+                    <div class="disruptContainer">
+                        <p>How annoying: 
+                            <span><img src="./img/pylon_pylon.svg" alt=""></span>
+                            <span><img src="./img/pylon_pylon.svg" alt=""></span>
+                            <span><img src="./img/pylon_pylon.svg" alt=""></span>
+                            <span><img src="./img/pylon_pylon.svg" alt=""></span>
+                        </p>
+                    </div>
+                    <p>A watermain is being replaced from Bathurst Street to Portland Street. This work may include replacement of fire hydrants and water valves. This work is being carried over until Q3 2023.</p>
+                    <p>Individual lanes on Wellington Street from Blue Jays Way to Clarence Square may be closed or the entire road may be closed into Q3 of 2022 due to old asphalt being replaced with new asphalt, as well as repairs to any damaged sidewalks and curbs.</p>
+                </div>
+            </div>
+            <div class="slide" id="slide7">
+                <div class="slideimage">
+                    <img src="https://placebear.com/600/600">
+                </div>
+                <div class="slidecaption">
+                    <p class="slideHed">TIKLKLKE</p>
+                    <div class="disruptContainer">
+                        <p>How annoying: 
+                            <span><img src="./img/pylon_pylon.svg" alt=""></span>
+                            <span><img src="./img/pylon_pylon.svg" alt=""></span>
+                            <span><img src="./img/pylon_pylon.svg" alt=""></span>
+                            <span><img src="./img/pylon_pylon.svg" alt=""></span>
+                        </p>
+                    </div>
+                    <p>Sed id purus consectetur, convallis lorem eu, sollicitudin libero. Maecenas venenatis nec velit at auctor. Suspendisse convallis vel orci consectetur elementum. Nullam non tincidunt odio.</p>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+   
+    <div class="graphic-bottom">
+        <p class="graphic-bottom__notetext" id="notetext"></p>
+        <p class="graphic-bottom__graphic-source" id="source">Source: TKTK</p>
+        <p class="graphic-bottom__graphic-byline" id="byline">Toronto Star graphic</p>
+    </div>
+
+</div>
+
+<script>
+
+
+
+
+
+            $(document).ready(function () {
+
+
+                function setHeight() {
+
+                    var maxHeight = 0;
+
+                    $('.slide').each(function(){
+                       var thisH = $(this).height();
+                       if (thisH > maxHeight) { maxHeight = thisH + 8; };
+                    });
+
+                    $('.slide-container').height(maxHeight);
+
+                    resize();
+
+                };
+
+                setHeight();
+
+                function throttle(func, wait = 100) {
+                    let timer = null;
+                    return function(...args) {
+                        if (timer === null) {
+                            timer = setTimeout(() => {
+                                func.apply(this, args);
+                                timer = null;
+                            }, wait);
+                        }
+                    };
+                }
+
+                const throttled = throttle(setHeight, 200);
+                window.addEventListener('resize', throttled);
+
+                $('#navarrownext').on('click', moveforward);
+                $('#navarrowprevious').on('click', movebackward);
+
+                // var swipebox = document.getElementById("swipebox");
+
+                // Hammer(swipebox).on("swipeleft", function(){
+                //     if (!$('.slide:last-of-type').hasClass('activeslide')) {
+                //         moveforward();
+                //     }
+                // });
+                // Hammer(swipebox).on("swiperight", function(){
+                //     if (!$('.slide:first-of-type').hasClass('activeslide')) {
+                //         movebackward();
+                //     }
+                // });
+               
+
+                function moveforward() {
+
+                    if ($('.slide:first-of-type').hasClass('activeslide')) {
+                         $('#navarrowprevious').removeClass('disabledbutton');
+                         $('#navarrowprevious').prop('disabled', false);
+
+                    };
+
+                    if ($('.slide:nth-last-of-type(2)').hasClass('activeslide')) {
+
+                         $('#navarrownext').addClass('disabledbutton');
+                         $('#navarrownext').prop('disabled', true);
+                    };
+
+                    if ($('.activeslide').attr('data-onforward')) {
+                        var thisFunction = $('.activeslide').data('onforward');
+                        window[thisFunction]();
+                    }
+
+                    $('.activeslide').next().addClass('activeslide');
+                    $('.activeslide:first').removeClass('activeslide');
+
+                    $('.activeprogressmarker').next().addClass('activeprogressmarker');
+                    $('.activeprogressmarker:first').removeClass('activeprogressmarker');
+
+
+
+
+
+                };
+
+                function movebackward() {
+
+                    if ($('.slide:last-of-type').hasClass('activeslide')) {
+                         $('#navarrownext').removeClass('disabledbutton');
+                         $('#navarrownext').prop('disabled', false);
+                    };
+
+                    if ($('.slide:nth-of-type(2)').hasClass('activeslide')) {
+                         $('#navarrowprevious').addClass('disabledbutton');
+                         $('#navarrowprevious').prop('disabled', true);
+                    };
+
+                    if ($('.activeslide').attr('data-onback')) {
+                        var thisFunction = $('.activeslide').data('onback');
+                        window[thisFunction]();
+                    }
+
+                    $('.activeslide').prev().addClass('activeslide');
+                    $('.activeslide:last').removeClass('activeslide');
+
+                    $('.activeprogressmarker').prev().addClass('activeprogressmarker');
+                    $('.activeprogressmarker:last').removeClass('activeprogressmarker');
+
+                    
+
+                };
+
+
+
+
+                $('.navarrow').click(function(){
+                        $(this).addClass('clicked');
+
+                    setTimeout(function() {
+                        $('.clicked').removeClass('clicked');
+                    }, 200);
+
+                });
+
+
+               
+
+
+
+            });
+
+
+               
+
+
+
+
+    function resize(){
+        var message = {'resize': 
+                  {
+                    'iframe':'stepper-graphic-iframe',
+                    'height': document.getElementsByClassName('stepper-graphic')[0].offsetHeight + 20
+                  }
+                };
+       
+        parent.postMessage(message, "*");
+    };
+
+    window.addEventListener('load', function() {
+        resize();
+    });
+
+    window.addEventListener("resize", function(){
+        resize();
+    });
+
+    setTimeout(function() {
+                        resize();
+                    }, 800);
+
+  
+    document.addEventListener("touchstart", function(){}, true);
+
+
+
+</script>
+</body>
+</html>
+
